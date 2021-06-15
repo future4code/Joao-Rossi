@@ -2,12 +2,15 @@
 const primeiroNumero = Number(prompt('Olá, tudo bem? Insira aqui um número, por favor:'))
 const segundoNumero = Number(prompt('Insira outro número, por favor:'))
 
-// Criando uma variável para a comparação das idades:
-const comparacaoIdade = idade > idadeMelhorAmigx
+// Criando variáveis para imprimir o resultado das comparações:
+const primeiraComparacao = primeiroNumero > segundoNumero
+const segundaComparacao = primeiroNumero === segundoNumero
+const terceiraComparacao = (primeiroNumero % segundoNumero) === 0
+const quartaComparacao = (segundoNumero % primeiroNumero) === 0
 
-// Criando uma variável para armazenar a diferença das idades:
-const diferencaIdade = idade - idadeMelhorAmigx
 
 // Imprimindo os resultados:
-console.log('Sua idade é maior do que a do seu melhor amigo? ', comparacaoIdade)
-console.log('A diferença das idades é ', diferencaIdade)
+console.log('O primeiro número é maior que o segundo?', primeiraComparacao)
+console.log('O primeiro número é igual ao segundo?', segundaComparacao)
+console.log('O primeiro número é divisível pelo segundo?', terceiraComparacao)
+console.log('O segundo número é divisível pelo primeiro?', quartaComparacao)
