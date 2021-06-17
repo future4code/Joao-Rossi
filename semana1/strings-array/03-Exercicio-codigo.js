@@ -23,24 +23,24 @@ Agora digite mais uma:`)
 
 // Criando a lista com as tarefas
 
-listaDeTarefas.push(tarefa1, tarefa2, tarefa3)
+listaDeTarefas.push(tarefa1.trim(), tarefa2.trim(), tarefa3.trim())
 
 
 // Imprimindo o array novo
 
 console.log(`Perfeito. Essa é a lista de tarefas que criei para você:
-1. ${listaDeTarefas(0)};
-2. ${listaDeTarefas(1)};
-3. ${listaDeTarefas(3)};`)
+1. ${listaDeTarefas[0]};
+2. ${listaDeTarefas[1]};
+3. ${listaDeTarefas[2]};`)
 
 
 // Perguntando se realizou alguma dessa tarefas
 
 numeroDaTarefa = prompt(`Lista de tarefas:
 
-1. ${listaDeTarefas(0)};
-2. ${listaDeTarefas(1)};
-3. ${listaDeTarefas(3)};
+1. ${listaDeTarefas[0]};
+2. ${listaDeTarefas[1]};
+3. ${listaDeTarefas[2]};
 
 Você realizou alguma dessas tarefas? 
 Se sim, digite o número da tarefa na lista acima:`)
@@ -48,7 +48,23 @@ Se sim, digite o número da tarefa na lista acima:`)
 
 // Correspondendo a tarefa ao índice na lista:
 
-numeroNaLista = numeroDaTarefa - 1
+let numeroNaLista = numeroDaTarefa - 1
 
 
-// Imprimindo a nova lista  
+// Criando a nova lista:
+
+listaDeTarefas.splice(numeroNaLista, 1)
+
+novaLista = listaDeTarefas
+
+
+// Imprimindo a nova lista
+
+console.log(`Perfeito!
+
+Ainda restam essas tarefas para você cumprir:
+
+1. ${listaDeTarefas[0]};
+2. ${listaDeTarefas[1]};
+
+Força, Foco e Fé!`)
