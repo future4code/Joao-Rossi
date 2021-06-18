@@ -87,36 +87,55 @@ function checaStringsMesmoTamanho(string1, string2) {
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
   // implemente sua lógica aqui
-
+  return array[0]
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
+  return array[array.length - 1]
 
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-
+  array.splice(array.length)
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
+  let comparacaoString = string1.toUpperCase() === string2.toUpperCase()
+
+  return comparacaoString
 
 }
 
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+  const anoAtual = Number(prompt('Em que ano estamos?'))
+  const anoNascimento = Number(prompt('Em que ano você nasceu?'))
+  const anoRG = Number(prompt('Em que ano você tirou seu RG?'))
+
+  const verificadorMenos20 = ((anoAtual - anoNascimento) <= 20 && (anoAtual - anoRG) >= 5)
+  const verificadorMenos50 = ((anoAtual - anoNascimento) <= 50 && (anoAtual - anoRG) >= 10)
+  const verificador50 = ((anoAtual - anoNascimento) > 50 && (anoAtual - anoRG) >= 15)
+
+  console.log(verificadorMenos20 || verificadorMenos50 || verificador50)
 
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+
+  let condicao1 = ano % 400 === 0
+  let condicao2 = ano % 4 === 0 && !(ano % 100 === 0 && ano !== 400)
+
+  return condicao1 || condicao2
+
 
 }
 
