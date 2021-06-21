@@ -17,10 +17,9 @@ function imprimeMensagem() {
 
 // EXERCÍCIO 01
 function calculaAreaRetangulo() {
-  let numero1 = Number(prompt('Insira um número:'))
-  let numero2 = Number(prompt('Insira outro número:'))
-
-  let areaRetangulo = numero1 * numero2
+  const numero1 = Number(prompt('Insira um número:'))
+  const numero2 = Number(prompt('Insira outro número:'))
+  const areaRetangulo = numero1 * numero2
 
   console.log(areaRetangulo)
 
@@ -28,24 +27,25 @@ function calculaAreaRetangulo() {
 
 // EXERCÍCIO 02
 function imprimeIdade() {
-  let anoNascimento = Number(prompt('Insira o ano que você nasceu:'))
-  let anoAtual = Number(prompt('Em qual ano estamos hoje?'))
+  const anoNascimento = Number(prompt('Insira o ano que você nasceu:'))
+  const anoAtual = Number(prompt('Em qual ano estamos hoje?'))
+  const idade = anoAtual - anoNascimento
 
-  console.log(anoNascimento - anoAtual)
+  console.log(idade)
 
 }
 
 // EXERCÍCIO 03
 function calculaIMC(peso, altura) {
-  return peso/(altura * altura)
+  return peso/(altura ** 2)
 
 }
 
 // EXERCÍCIO 04
 function imprimeInformacoesUsuario() {
-  let nome = prompt('Insira o seu nome aqui:')
-  let idadeUsuario = prompt('Insira a sua idade aqui:')
-  let email = prompt('Insira o seu email aqui:')
+  const nome = prompt('Insira o seu nome aqui:')
+  const idadeUsuario = prompt('Insira a sua idade aqui:')
+  const email = prompt('Insira o seu email aqui:')
 
   console.log(`Meu nome é ${nome}, tenho ${idadeUsuario} anos, e o meu email é ${email}.`)
 
@@ -54,11 +54,11 @@ function imprimeInformacoesUsuario() {
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // implemente sua lógica aqui
-  let cor1 = prompt('Insira uma das suas três cores favoritas:')
-  let cor2 = prompt('Insira mais uma das suas três cores favoritas:')
-  let cor3 = prompt('Insira a sua última das três cores favoritas:')
+  const cor1 = prompt('Insira uma das suas três cores favoritas:')
+  const cor2 = prompt('Insira mais uma das suas três cores favoritas:')
+  const cor3 = prompt('Insira a sua última das três cores favoritas:')
 
-  let grupoDeCores = [cor1, cor2, cor3]
+  const grupoDeCores = [cor1, cor2, cor3]
 
   console.log(grupoDeCores)
 
@@ -100,7 +100,13 @@ function retornaUltimoElemento(array) {
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-  array.splice(array.length)
+  const primeiro = retornaPrimeiroElemento(array)
+  const ultimo = retornaUltimoElemento(array)
+
+  array[0] = ultimo
+  array[array.length - 1] = primeiro
+
+  return array
 }
 
 // EXERCÍCIO 12
@@ -119,9 +125,12 @@ function checaRenovacaoRG() {
   const anoNascimento = Number(prompt('Em que ano você nasceu?'))
   const anoRG = Number(prompt('Em que ano você tirou seu RG?'))
 
-  const verificadorMenos20 = ((anoAtual - anoNascimento) <= 20 && (anoAtual - anoRG) >= 5)
-  const verificadorMenos50 = ((anoAtual - anoNascimento) <= 50 && (anoAtual - anoRG) >= 10)
-  const verificador50 = ((anoAtual - anoNascimento) > 50 && (anoAtual - anoRG) >= 15)
+  const idade = anoAtual - anoNascimento
+  const tempoRG = anoAtual - anoRG
+
+  const verificadorMenos20 = idade <= 20 && tempoRG >= 5
+  const verificadorMenos50 = idade <= 50 && tempoRG >= 10
+  const verificador50 = idade > 50 && tempoRG >= 15
 
   console.log(verificadorMenos20 || verificadorMenos50 || verificador50)
 
@@ -142,5 +151,9 @@ function checaAnoBissexto(ano) {
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
+  const maioridade = prompt('Você é tem mais de 18 anos?')
+  const escolaridade = prompt('Você já concluiu o Ensino Médio?')
+  const disponibilidade = prompt('Você tem disponibilidade para se dedicar ao curso?')
 
+  console.log(maioridade === 'sim' && escolaridade === 'sim' && disponibilidade === 'sim')
 }
