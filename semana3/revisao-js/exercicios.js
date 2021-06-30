@@ -22,7 +22,7 @@ function retornaNumerosParesElevadosADois(array) {
     
     // Criando as condições:
     if (array[i] % 2 === 0) {
-      arrayNovo.push(array[i] * array[i])
+      arrayNovo.push(array[i] ** 2)
     }
   }
   return arrayNovo
