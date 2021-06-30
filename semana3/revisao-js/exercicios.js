@@ -49,6 +49,15 @@ function retornaNumerosPares(array) {
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
 
+// Criando a variável que irá armazenar o maior número:
+let maiorNumero = []
+
+  for (i = 0; i <array.length; i++){
+    if (maiorNumero > array[i]) {
+      maiorNumero = array[i]
+    }
+  }
+ return maiorNumero
 }
 
 // EXERCÍCIO 05
