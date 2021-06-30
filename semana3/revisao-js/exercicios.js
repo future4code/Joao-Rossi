@@ -14,6 +14,19 @@ function inverteArray(array) {
 // EXERCÍCIO 02
 function retornaNumerosParesElevadosADois(array) {
 
+  // Criando o array que irá armazenar os números
+  let arrayNovo = []
+  
+  // Criando o loop
+  for (let i = 0;i < array.length;i++) {
+    
+    // Criando as condições:
+    if (array[i] % 2 === 0) {
+      arrayNovo.push(array[i] * array[i])
+    }
+  }
+  return arrayNovo
+
 }
 
 // EXERCÍCIO 03
