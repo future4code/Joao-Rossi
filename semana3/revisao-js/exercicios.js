@@ -31,6 +31,18 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 03
 function retornaNumerosPares(array) {
+// Criando o array que irá ser o novo array:
+  let arrayPar = []
+
+  // Criando o loop:
+  for (i = 0; i < array.length; i ++){
+  // Criando as condições:
+    if (array[i] % 2 === 0) {
+      arrayPar.push(array[i])
+    } 
+  }
+
+  return arrayPar
 
 }
 
