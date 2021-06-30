@@ -91,6 +91,14 @@ return [false, false, true, true, true]
 // EXERCÍCIO 07
 function retornaNNumerosPares(n) {
 
+  let arrayComPares = []
+
+  for (let i = 0; arrayComPares.length <n; i++){
+    if (i % 2 === 0){
+      arrayComPares.push(i)
+    }
+  }
+  return arrayComPares
 }
 
 // EXERCÍCIO 08
