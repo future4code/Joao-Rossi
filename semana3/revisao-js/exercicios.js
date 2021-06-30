@@ -53,7 +53,7 @@ function retornaMaiorNumero(array) {
 let maiorNumero = []
 
   for (i = 0; i <array.length; i++){
-    if (maiorNumero > array[i]) {
+    if (array[i] > maiorNumero) {
       maiorNumero = array[i]
     }
   }
@@ -62,7 +62,7 @@ let maiorNumero = []
 
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {
-  
+
 }
 
 // EXERCÍCIO 06
