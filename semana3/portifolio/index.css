@@ -1,0 +1,81 @@
+* {
+    margin:0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url(/img/dev.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.h1 {
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 20pt;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    color: rgba(240,250,240, 100%);
+    text-shadow: rgba(0, 15, 20, 100%) 0px 4px 10px;
+
+}
+
+div.font{
+    font-size: 48pt;
+}
+
+header {
+    width: 80vw;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    font-size: 14pt;
+    margin-top: 0pt;
+    padding:20px 20px;
+}
+
+span.menu {
+    text-align: center;
+    padding: 10px 40px 10px 40px;
+    border-color: rgb(119, 68, 1);
+    margin: 0px 0px 0px 0px;
+}
+
+#menu {
+    border-right: 2px solid;
+    border-color: rgb(50, 98, 117, 0.568);
+}
+
+#menu2 {
+    text-align: left;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-color: rgba(50, 98, 117, 0.568);
+}
+
+div.img{
+
+text-align: center;
+
+}
+
+div.escrita{
+    background-color: rgba(246, 252, 255, 0.644);
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    text-align: left;
+    font-size: 18pt;
+    font-family: ;
+    padding: 40px 500px;
+}
+
+div.img{
+    background-color: rgba(246, 252, 255, 0.644);
+    text-align: center;
+    padding: 50px 0px 0px 0px;
+}
+
+div.legenda {
+    background-color: rgba(246, 252, 255, 0.644);
+    text-align: center;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    padding-bottom: 40px;
+}
