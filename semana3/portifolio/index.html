@@ -17,27 +17,31 @@
                     <a id="a" href="#">Home</a>
                 </li>
                 <li>
-                    <a  href="#">Sobre</a>
+                    <a  href="#sobre-mim">Apresentação</a>
                 </li>
                 <li>
-                    <a href="#">Produtos</a>
+                    <a href=#formacao>Minha Formação</a>
                 </li>
                 <li>
-                    <a  href="#">Contato</a>
+                    <a  href="#contato">Contato</a>
                 </li>
             </ul>
         </nav>
     </header>
 
+  
+    
+    
+    <div class="imgjoao"><img id="img-joao" src="./img/eu.jpg" /></div>
+
     <h1>{ DESENVOLVEDOR WEB FULL STACK }</h1>
 
-    <div class="h1">
-        
-        <span>João Filipe Rossi Rodrigues</span>
-    </div>
+    <div class="subtitle">João Filipe Rossi Rodrigues</div>
+  
 
-    <div class="img-joao"><img src="./img/eu.jpg" /></div>
+    <section id="sobre-mim">
 
+    <h2>Apresentação</h2>  
     <div class="escrita">
 
             Olá, tudo bem?<br> Eu sou o João Filippe Rossi Rodrigues!
@@ -59,9 +63,91 @@
             cuidado comigo.
             <br><br>Aliás, você pode até ver algumas coisinhas que eu fiz aqui no meu GitHub e também em alguma das minhas
             coisinhas!.
+    
+        </div>
+    
+    </section>
 
-    </div>
+    <section id='formacao'>
+        <h2>Minha Formação</h2>
+
+        <div class="escrita">
+
+            <ul class="escrita2">
+                <li class="escrita">
+                    <b>UNESP (Campus de Franca/SP)</b>, Universidade Júlio de Mesquita Filho <br>
+                Direito (2013-2017)
+                </li>
+                <li>
+                    <b>IBET (São Paulo/SP; São José do Rio Preto/SP)</b> – Instituto Brasileiro de Estudos Tributários<br>
+                    Especialização em Direito Tributário(2018-2020)
+                </li>
+    
+                <li>
+                    <b>IBET (São Paulo/SP; São José do Rio Preto/SP)</b> – Instituto Brasileiro de Estudos Tributários<br>
+                    Especialização em Direito Tributário(2018-2020)
+                </li>
+    
+                <li>
+                    <b>USP (São Paulo/SP; Piracicaba/SP)</b> – Universidade de São Paulo<br>
+                    MBA em Gestão Tributária(Em andamento)
+                </li>
+
+                <li>
+                    <b>LABENU (São Paulo/SP; São José do Rio Preto/SP)</b><br>
+                    Desenvolvimento Web Full Stack(Em andamento)
+                </li>
     
     
+            </ul>
+ 
+                       
+        </div>
+
+    </section>
+
+        <h2>Portifólio</h2>
+
+        <div class="escrita">
+
+        Eu ainda não tenho tanta coisa para mostrar, até mesmo esse site será
+        atualizado conforme eu for aprendendo a programar😁.
+
+        Mas aqui está o meu primeiro site:
+
+        
+        </div>
+        
+        <div class="img"><img id="port" src="./img/port.png" /></div>
+
+        <section id="contato">
+        <h2>Entre em contato comigo!</h2>
+        <form>
+            <div>
+                <label for="nome-pessoa">Digite o seu nome: </label>
+                <input type="text" id="nome-pessoa" name="nome-pessoa">
+            </div>
+            
+            <div>
+                <label for="email">Digite o seu e-mail: </label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div>
+                <label for="mensagem">Digite a sua mensagem: </label>
+                <!-- Adicione o id apropriado e o type para receber números abaixo -->
+                <input type="text" id="mensagem" name="mensagem">
+            </div>
+                
+            <div class="form-add">
+                <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+                <button type="send">Enviar</button>
+            </div>
+
+        </section>
+    
+        </form>
+    
+<footer>Desenvolvido por João Filippe Rossi Rodrigues</footer>
 
 </body>

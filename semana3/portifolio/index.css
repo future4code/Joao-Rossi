@@ -9,16 +9,23 @@ body {
     background-size: cover;
 }
 
-div.h1 {
+h1 {
     text-align: center;
-    margin-top: 120px;
-    padding-top: 20px;
-    padding-bottom: 25px;
-    font-size: 20pt;
+    padding-bottom: 10px;
+    font-size: 48pt;
     font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     color: rgba(240,250,240, 100%);
     text-shadow: rgba(0, 15, 20, 100%) 0px 4px 10px;
 
+}
+
+div.subtitle {
+    text-align: center;
+    font-size: 24pt;
+    padding-bottom: 120px;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    color: rgba(240,250,240, 100%);
+    text-shadow: rgba(0, 15, 20, 100%) 0px 4px 10px;  
 }
 
 div.font{
@@ -29,11 +36,11 @@ div.font{
     width: 100%;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 0px;
 }
 
 .menu {
-    background-color: #b7caff9c;
+    background-color: #a6b8ccf3;
     text-align: center;
 }
 
@@ -45,34 +52,13 @@ div.font{
 .menu ul li a {
     display: block;
     color: #FFFFFF;
-    padding: 30px 10px;
-    border-right: 2px solid #c01111;
-    
-}
-
-#a {
-    display: block;
-    color: #FFFFFF;
-    padding: 30px 10px;
-    border-left: 2px solid #c01111;
-    
+    padding: 30px 20px;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    font-size: 16pt;
+    font-weight: bold;
 }
 
 
-.main {
-    padding: 50px 0;
-}
-
-.content {
-    width: 80%;
-    padding: 30px;
-    background-color: #eff0f1;
-    height: 1000px;
-}
-
-.content h1 {
-    margin-bottom: 30px;
-}
 
 .footer {
     background-color: #eff0f1;
@@ -80,38 +66,38 @@ div.font{
     padding: 50px 0px;
 }
 
-a.a {
-    border-color: rgba(255, 255, 255, 1);
-    border-left: 1px solid;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-a.a2 {
-    border-color: rgba(255, 255, 255, 1);
-    border-left: 1px solid;
-    border-right: 1px solid;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-#img-joao {
-text-align: left;
-}
-
 div.escrita{
     background-color: rgba(246, 252, 255, 0.644);
     font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     text-align: left;
     font-size: 18pt;
-    font-family: ;
     padding: 40px 500px;
 }
 
-div.img{
+div.escrita2{
     background-color: rgba(246, 252, 255, 0.644);
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    text-align: left;
+    font-size: 18pt;
+    margin-top: 100px;
+    padding: 40px 500px;
+}
+
+
+#img-joao {
+    width: 200px;
+    height: auto;
+}
+
+div.imgjoao{
+   text-align: center;
+   margin-top: 18vh;
+   padding: 2vh;
+}
+
+div.img {
     text-align: center;
-    padding: 50px 0px 0px 0px;
+    background-color: rgba(246, 252, 255, 0.644);
 }
 
 div.legenda {
@@ -121,7 +107,45 @@ div.legenda {
     padding-bottom: 40px;
 }
 
-img.img-joao img{
-    weight: 80px;
-    height: auto;
+h2 {
+    font-size: 24pt;
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    background-color: rgba(246, 252, 255, 0.644);
+    padding: 10px 400px;
+}
+
+ul.escrita{
+
+   
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    text-align: left;
+    font-size: 18pt;
+    padding: 10px 50px;
+
+}
+
+#port {
+    width: 50%;
+}
+
+footer {
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    font-size: 18pt;
+    color: whitesmoke;
+    padding-top: 30px;
+    padding-bottom:30px;
+    text-align: center;
+    background-color:rgba(50, 59, 63, 0.644);
+}
+
+h2 {
+    margin-top: 60px;
+}
+
+form {
+    background-color: rgba(246, 252, 255, 0.644);
+    font-family: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    text-align: left;
+    font-size: 18pt;
+    padding: 40px 500px;
 }
