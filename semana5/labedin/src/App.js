@@ -3,6 +3,7 @@ import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import CardPequeno from './components/CardPequeno/CardPequeno';
+import styled from "styled-components";
 
 function App() {
   return (
