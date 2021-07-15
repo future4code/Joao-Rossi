@@ -67,16 +67,7 @@ class Post extends React.Component {
     }
 
 
-  // if(this.state.curtido) {
-  //   // Curtida:
-  //   iconeCurtida = iconeCoracaoPreto
-  // } else {
-  //   // Não curtida:
-  //   iconeCurtida = iconeCoracaoBranco
-  // }
-
-
-// Evento de comentário:
+ // Evento de comentário:
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
