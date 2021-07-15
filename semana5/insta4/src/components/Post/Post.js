@@ -48,16 +48,43 @@ class Post extends React.Component {
     numeroComentarios: 0
   }
 
-  onClickCurtida = () => {
-    console.log('Curtiu!')
-  }
 
+// Evento de curtida:
+  onClickCurtida = () => {
+    if (!this.state.curtido) {
+      this.state.iconeCurtida = iconeCoracaoPreto;
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas + 1,
+        curtido: true
+      })
+    } else {
+      this.state.iconeCurtida = iconeCoracaoBranco;
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas - 1,
+        curtido: false
+      })
+    }
+    }
+
+
+  // if(this.state.curtido) {
+  //   // Curtida:
+  //   iconeCurtida = iconeCoracaoPreto
+  // } else {
+  //   // Não curtida:
+  //   iconeCurtida = iconeCoracaoBranco
+  // }
+
+
+// Evento de comentário:
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
     })
   }
 
+
+  // Evento de enviar comentário:
   aoEnviarComentario = () => {
     this.setState({
       comentando: false,
@@ -65,18 +92,22 @@ class Post extends React.Component {
     })
   }
 
+
   render() {
     let iconeCurtida
 
     if(this.state.curtido) {
+      // Curtida:
       iconeCurtida = iconeCoracaoPreto
     } else {
+      // Não curtida:
       iconeCurtida = iconeCoracaoBranco
     }
 
     let componenteComentario
 
     if(this.state.comentando) {
+      // Caixa de comentário:
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
@@ -90,12 +121,14 @@ class Post extends React.Component {
 
       <PostFooter>
         <IconeComContador
+        // Número de curtidas:
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
 
         <IconeComContador
+        // Número de comentários
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
