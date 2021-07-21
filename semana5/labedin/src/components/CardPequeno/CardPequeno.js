@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-const SmallCardContainer = styled.container`
+const SmallCardContainer = styled.div`
     display: flex;
     align-items: center;
     border: 1px solid black;
@@ -29,7 +29,7 @@ const SmallCardDiv = styled.div`
 
 function CardPequeno(props) {
     return (
-        <SmallCardContainermall>
+        <SmallCardContainer>
             <SmallCardImg
             src={
                 props.imagem
@@ -45,7 +45,7 @@ function CardPequeno(props) {
                 props.texto
                 }   
             </p>
-        </SmallCardContainermall>
+        </SmallCardContainer>
     )
 }
 

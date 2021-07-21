@@ -1,14 +1,40 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import CardPequeno from './components/CardPequeno/CardPequeno';
-import styled from "styled-components";
+import styled, { createGlobalStyle} from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  }
+`;
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+`;
+
+const PageSectionContainer = styled.div`
+  width: 40vw;
+  margin: 10px 0;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <div className="page-section-container">
+    <AppContainer>
+    <GlobalStyle />
+    <PageSectionContainer>
         <h2>Dados pessoais</h2>
         <CardGrande 
           imagem="https://scontent.fsjp1-1.fna.fbcdn.net/v/t1.6435-9/173174888_10220481665777819_5923610044437290171_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=nr2qZmEYFGoAX_cUzEr&_nc_ht=scontent.fsjp1-1.fna&oh=e8f4d14fdd23ceba8937084bdc0db919&oe=60F3AFFC" 
@@ -20,27 +46,24 @@ function App() {
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
           texto="Ver mais"
         />
-      </div>
+    </PageSectionContainer>
 
-      <div className="page-section-container">
-        <h2>Meu e-mail e endereço</h2>
+    <PageSectionContainer>
+        <h2>Como me achar:</h2>
         <CardPequeno
           imagem='https://cdn.icon-icons.com/icons2/171/PNG/512/email_blue_23344.png'
           informacao='E-mail'
           texto='joaofilippe@outlook.com'
           />
-      </div> 
-
-      <div className="page-section-container">
-        <h2>Meu e-mail e endereço</h2>
+      
         <CardPequeno
           imagem='https://img.icons8.com/color/452/home.png'
           informacao='Endereço'
           texto='Rua 28 de Maio, nº 1993, Vila Felicidade, São José do Rio Preto/SP'
           />
-      </div> 
+      </PageSectionContainer> 
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <h2>Experiências profissionais</h2>
         <CardGrande 
           imagem=" https://media-exp3.licdn.com/dms/image/C4E0BAQF4-4i2xTQkgA/company-logo_100_100/0/1529531312303?e=1634169600&v=beta&t=Xt91vWwnLAJB5sMG0kVsSpZ4arWu86Onsq7j6XIej54 " 
@@ -53,9 +76,9 @@ function App() {
           nome="Cunha | Mantovani Advogados" 
           descricao="Minha primeira tentativa de sociedade!" 
         />
-      </div>
+      </PageSectionContainer>
 
-      <div className="page-section-container">
+      <PageSectionContainer>
         <h2>Minhas redes sociais</h2>
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
@@ -66,8 +89,8 @@ function App() {
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
           texto="Twitter" 
         />        
-      </div>
-    </div>
+      </PageSectionContainer>
+    </AppContainer>
   );
 }
 
