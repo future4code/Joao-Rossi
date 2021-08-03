@@ -1,46 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
-import Etapa1 from "./components/Etapa1";
-import Etapa2 from "./components/Etapa2";
-import Etapa3 from "./components/Etapa3";
-import Final from "./components/Final";
+import React from "react";
+import PerguntaAberta from "./PerguntaAberta";
+import PerguntaOpcoes from "./PerguntaOpcoes";
 
-const AskTitle = styled.div `
-    display: flex;
-    font-size: 14pt;
-    justify-content: center;
-    font-family: 'Helvetica Neue';
-    font-weight: bold;
-`
+class Etapa1 extends React.Component {
 
-const InputBox = styled.div `
-    display: flex;
-    justify-content: center;
-    padding: 2em;    
-`
-
-class DadosGerais extends React.Component {
     
-    state = {
-        nome: '',
-        
-    }
+  render() {
+    return (
+      <div>
+        <h3>ETAPA 1 - DADOS GERAIS</h3>
+        <PerguntaAberta pergunta={"1. Qual o seu nome?"} />
+        <PerguntaAberta pergunta={"2. Qual sua idade?"} />
+        <PerguntaAberta pergunta={"3. Qual seu email?"} />
+        <PerguntaOpcoes
+          pergunta={"4. Qual a sua escolaridade?"}
+          opcoes={[
+            "Ensino médio incompleto",
+            "Ensino médio completo",
+            "Ensino superior incompleto",
+            "Ensino superior completo"
+          ]}
+        />
+      </div>
+    );
+  }
+}
 
-    render() {
-        return (
-            <div>
-
-                <AskTitle>
-                    1. Qual o seu nome completo?
-                </AskTitle>
-                <InputBox>
-                <input></input>
-                </InputBox>
-
-            </div>
-        )
-    
-    }
-};
-
-export default DadosGerais;
+export default Etapa1;
