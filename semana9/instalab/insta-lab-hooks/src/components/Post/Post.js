@@ -35,10 +35,10 @@ const Post = (props) => {
   const iconeCurtida = verificarCurtida ? iconeCoracaoPreto : iconeCoracaoBranco;
 
 
-  const secaoComentarios = enviarComentarios ? (
+  const listaTodosComentarios = enviarComentarios ? (
     <SecaoComentario enviarComentario={enviarComentario} />
   ) : (
-    secaoComentarios.map((comentario) => {
+    listaComentarios.map((comentario) => {
       return (
         <CommentContainer>
           <p>{comentario}</p>
@@ -53,7 +53,7 @@ const Post = (props) => {
 
   const enviarComentario = (comentario) => {
     setNumeroComentarios(numeroComentarios + 1);
-    const novaListaDeComentarios = [...secaoComentario, comentario];
+    const novaListaDeComentarios = [...listaComentarios, comentario];
     setEnviarComentarios(false);
     setListaComentarios(novaListaDeComentarios);
   }
@@ -80,7 +80,7 @@ const Post = (props) => {
           valorContador={numeroComentarios}
         />
       </PostFooter>
-      {secaoComentario}
+      {listaComentarios}
     </PostContainer>
   )
 }
