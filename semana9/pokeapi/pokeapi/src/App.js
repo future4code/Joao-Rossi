@@ -3,7 +3,9 @@ import "./styles.css";
 import axios from "axios";
 import PokeCard from "./components/PokeCard";
 
-class App extends React.Component {
+function App () {
+
+  
   state = {
     // lista de pokemons que está sendo guardada no estado
     pokeList: [],
