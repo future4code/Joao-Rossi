@@ -12,8 +12,8 @@ const HeaderContainter = styled.div`
 
 function Header() {
   return (
-    <AppBar position="static">
-      <Toolbar>
+    <AppBar position="static" >
+      <Toolbar sx={{justifyContent: 'center'}}>
         <Typography variant="h4">Tarot Game</Typography>
       </Toolbar>
     </AppBar>

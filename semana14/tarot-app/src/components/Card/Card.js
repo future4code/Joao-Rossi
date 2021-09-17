@@ -1,33 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import {
+  data,
+  baseImagesUrl,
+  imageBackCard,
+  cards,
+} from "../../constants/data";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 // Estilização:
-const CardContainer = styled.div `
+const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.2em;
-  
-`
+  margin-top: 1.5em;
+`;
 
-const Card = styled.div `
+const Card = styled.div`
   display: grid;
   grid-template-rows: 300px 1fr 1fr;
   box-shadow: 0 0.5em 1em black;
   align-items: center;
-`
-
-// Requerimento de dados:
-const data = require("../../assets/tarot.json");
-
-const baseImagesUrl = data.imagesUrl;
-
-const imageBackCard = data.imageBackCard;
-
-const cards = data.cards;
-
+`;
 
 // Funções que serão usadas:
 
@@ -51,12 +47,10 @@ function CardFront() {
   return (
     <CardContainer>
       <Card>
-        <img
-          src={cardImageUrl}
-          alt="carta selecionada"
-        />
+        <img src={cardImageUrl} alt="carta selecionada" />
       </Card>
-      <Typography variant='body1' ml={2}>{cardName}</Typography>
+      <Typography variant="body1" mt={5}>{cardName}</Typography>
+
       <Button onClick={getACard}>Tirar uma carta</Button>
     </CardContainer>
   );
