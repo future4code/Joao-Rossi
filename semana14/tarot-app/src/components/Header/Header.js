@@ -14,7 +14,7 @@ function Header() {
   return (
     <AppBar position="static" >
       <Toolbar sx={{justifyContent: 'center'}}>
-        <Typography variant="h4">Tarot Game</Typography>
+        <Typography variant="h4">TAROT GAME</Typography>
       </Toolbar>
     </AppBar>
   );

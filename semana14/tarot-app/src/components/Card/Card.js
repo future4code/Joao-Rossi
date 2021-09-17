@@ -13,12 +13,12 @@ import Typography from "@material-ui/core/Typography";
 const CardContainer = styled.div`
   display: grid;
   width: 300px;
-  grid-template-rows: 400px 100px 50px;
+  grid-template-rows: 400px 30px 50px;
   box-shadow: 0 0.5em 1em black;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   border-radius:10px;
+  padding-bottom: 1em;
 `;
 
 const ImgContainer = styled.div`
@@ -56,10 +56,10 @@ function CardFront() {
         <img src={cardImageUrl} alt="carta selecionada" />
       </ImgContainer>
 
-      <Typography variant="h6" align="center">
+      <Typography variant="h6" align="center" mb={3}>
         {cardName}
       </Typography>
-      <Button onClick={getACard}>{buttonText}</Button>
+      <Button variant='outlined' onClick={getACard}>{buttonText}</Button>
     </CardContainer>
   );
 }
