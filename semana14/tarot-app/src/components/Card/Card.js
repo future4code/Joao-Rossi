@@ -11,18 +11,20 @@ import Typography from "@material-ui/core/Typography";
 
 // Estilização:
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  width: 300px;
+  grid-template-rows: 400px 100px 50px;
+  box-shadow: 0 0.5em 1em black;
+  justify-content: center;
   align-items: center;
-  padding: 1.2em;
-  margin-top: 1.5em;
+  margin-top: 10px;
+  border-radius:10px;
 `;
 
-const Card = styled.div`
-  display: grid;
-  grid-template-rows: 300px 1fr 1fr;
-  box-shadow: 0 0.5em 1em black;
-  align-items: center;
+const ImgContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `;
 
 // Funções que serão usadas:
@@ -34,24 +36,30 @@ const getRandomInt = (min, max) => {
 };
 
 function CardFront() {
-  const [cardName, setCardName] = useState("Nome da Carta");
+  const [cardName, setCardName] = useState(" ");
   const [cardImageUrl, setCardImageUrl] = useState(imageBackCard);
+  const [buttonText, setButtonText] = useState("Tirar uma Carta");
+  const [cardList, setCardList] = useState([]);
 
   const getACard = () => {
     const numberCard = getRandomInt(0, 77);
-    console.log(numberCard);
     setCardName(cards[numberCard].name);
     setCardImageUrl(baseImagesUrl + cards[numberCard].image);
+    setCardList([...cardList, numberCard]);
+    setButtonText("Tirar outra Carta");
+    console.log(cardList);
   };
 
   return (
     <CardContainer>
-      <Card>
+      <ImgContainer>
         <img src={cardImageUrl} alt="carta selecionada" />
-      </Card>
-      <Typography variant="body1" mt={5}>{cardName}</Typography>
+      </ImgContainer>
 
-      <Button onClick={getACard}>Tirar uma carta</Button>
+      <Typography variant="h6" align="center">
+        {cardName}
+      </Typography>
+      <Button onClick={getACard}>{buttonText}</Button>
     </CardContainer>
   );
 }
