@@ -1,43 +1,34 @@
-import { BrowserRouter, Switch, Route} from "react-router-dom";
-
-import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
-import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
-import AddRecipeScreen from "../screens/AddRecipeScreen/AddRecipeScreen";
-import RecipeDetailScreen from "../screens/RecipeDetailScreen/RecipeDetailScreen";
-import RecipesListScreen from "../screens/RecipesListScreen/RecipesListScreen";
-import ErrorScreen from "../screens/ErrorScreen/ErrorScreen";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import AddRecipesPage from "../pages/AddRecipesPage/AddRecipesPage";
+import LoginPage from "../pages/LoginPage/LoginPage.js";
+import RecipeDetailPage from "../pages/RecipeDetailPage/RecipeDetailPage";
+import RecipesListPage from "../pages/RecipesListPage/RecipesListPage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const Router = () => {
   return (
-    <BrowserRouter>
-        <Switch>
-
-            <Route exact path='/'>
-                <WelcomeScreen />
-            </Route>
-
-            <Route exact path='/signup'>
-                <SignUpScreen />
-            </Route>
-
-            <Route exact path='/addrecipe'>
-                <AddRecipeScreen />
-            </Route>
-
-            <Route exact path='/recipeslist'>
-                <RecipesListScreen />
-            </Route>
-
-            <Route exact path='/recipedetail/:id'>
-                <RecipeDetailScreen />
-            </Route>
-
-            <Route>
-                <ErrorScreen />
-            </Route>
-
-        </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/login">
+        <LoginPage />
+      </Route>
+      <Route exact path="/cadastro">
+        <SignUpPage />
+      </Route>
+      <Route exact path="/">
+        <RecipesListPage />
+      </Route>
+      <Route exact path="/adicionar-receita">
+        <AddRecipesPage />
+      </Route>
+      <Route exact path="/detalhe/:id">
+        <RecipeDetailPage />
+      </Route>
+      <Route>
+        <ErrorPage />
+      </Route>
+    </Switch>
   );
 };
 
