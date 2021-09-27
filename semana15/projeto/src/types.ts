@@ -1,14 +1,15 @@
-export enum CONTINENTS {
-   AFRICA = "África",
-   AMERICA = "América",
-   ASIA = "Ásia",
-   EUROPE = "Europa",
-   OCEANIA = "Oceania"
+// * Criando o type Transaction:
+export type Transaction = {
+    value: number,
+    date: Date,
+    description: string,
 }
 
-export type country = {
-   id: number,
-   name: string,
-   capital: string,
-   continent: CONTINENTS
+// * Criando o type Account
+export type Account = {
+    name: string,
+    CPF: string,
+    dateOfBirth: Date,
+    balance: number,
+    statement: Transaction[]
 }
