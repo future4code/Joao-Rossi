@@ -16,3 +16,5 @@ UPDATE Actor SET name = "Juliana Paes" WHERE id = "005".
 ## Exercício 3
 **a)** DELETE FROM Actor WHERE name = "Fernanda Montenegro".
 **b)** DELETE FROM Actor WHERE gender = "male" AND salary > 1000000.
+
+## Eercício 4
