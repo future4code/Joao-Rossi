@@ -6,6 +6,7 @@ import { AddressInfo } from "net";
 
 dotenv.config();
 
+//* Configurando o knex (para conectar ao MySQL – Banco de Dados)
 export const connection = knex({
 	client: "mysql",
 	connection: {
@@ -17,10 +18,16 @@ export const connection = knex({
   }
 });
 
+//* Configurando o Express (para configurar a comunicação entre o Front e o Back)
 const app: Express = express();
+   //* Para usar o JSON como forma de se comunicar;
 app.use(express.json());
+
+//* Para o computador não "achar estranho" estarmos requisitando uma informação para ele próprio:
 app.use(cors());
 
+
+//* Reservando a porta para 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
@@ -29,8 +36,3 @@ const server = app.listen(process.env.PORT || 3003, () => {
        console.error(`Failure upon starting server.`);
     }
 });
-
-
-// * Endpoint para criar um usuário:
-
-app.get ('/signup)
