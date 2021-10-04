@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import createUser from "./endpoints/createUser"
 import getUserById  from "./endpoints/getUserById"
-
+import changeUser from "./endpoints/changeUser"
 dotenv.config();
 
 //* Configurando o knex (para conectar ao MySQL – Banco de Dados)
@@ -34,6 +34,9 @@ app.post ('/user', createUser)
 
 //* Endpoint para buscar um usuário pelo id:
 app.get ('/user/:id', getUserById)
+
+//* Endpoint para editar um usuário pelo id:
+app.put ('/user/edit/:id', changeUser)
 
 //* Reservando a porta para o localhost:
 const server = app.listen(process.env.PORT || 3003, () => {
