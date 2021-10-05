@@ -1,0 +1,57 @@
+## Exercício 1
+**a)** O comando "CREATE TABLE" é usado para criar a tabela, logo após ele deve vir o nome. Entre os parênteses devemos ter os nomes
+das colunas com seus tipos e condições. O tipo "VARCHAR" é usado para strings e deve-se colocar entre parênteses o número máximo de
+caracteres permitidos. O convencional é que seja 225.
+Ao indicar determinada coluna com "PRIMARY KEY", tal coluna torna-se a padrão da tabela e será por meio dela que as linhas serão
+organizadas. Tal coluna costuma ser o "id" da linha e seu valor pode ser numérico ou mesmo uma string.
+Também podemos ter colunas do tipo "DATE", que deve ser no formato "YYYY-MM-DD".
+A restrição "NOT NULL" impede que seja passada um valor vazio para a tabela.
+
+**b)** O comando "SHOW DATABASES" retornou "information_schema" e "lovelace-2147863-joao-rodrigues". Isso aconteceu porque trouxe as
+bases de dados de propriedade de determinado usuário. O comando "SHOW TABLES" retorna o nome da base de dados principal. Por
+
+**c)** O comando "DESCRIBE" nos retorna os nomes das colunas e também seus tipos e condições/restrições.
+
+
+## Exercício 2
+
+**a)** 
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "002", 
+  "Glória Pires",
+  1200000,
+  "1963-08-23", 
+  "female"
+);
+
+**b)** Duplicate entry '002' for key 'PRIMARY'
+Tradução: Entrada duplicada "002" para uma chave "PRIMARY".
+
+**c)**
+Error Code: 1136. Column count doesn't match value count at row 1
+Código de erro: 1136. A contagem de colunas não corresponde à contagem de valores na linha 1.
+
+**d)**
+Error Code: 1364. Field 'name' doesn't have a default value
+Código de erro . O campo "name" não tem um valor padrão.
+
+**e)**
+Error Code: 1292. Incorrect date value: '1950' for column 'birth_date' at row 1
+
+## Exercício 3
+**a)**
+SELECT * from Actor WHERE gender = "female";
+
+**b)**
+SELECT salary from Actor WHERE name = "Tony Ramos"
+
+**c)** 
+Ela retorna um valor nulo. Isso acontece porque não existe nenhuma linha com gênero inválido.
+
+### e)
+Error Code: 1054. Unknown column 'nome' in 'field list'
+
+## 4
+### a) 
+O indicador **" * "** indica para buscar todos os campos em que a linha contenha um nome que comece com A (LIKE %A) ou J (LIKE %J). Essas condições estão entre parênteses porque a query se satisfaz em começar com A ou começar com J. Por outro lado, cumprida uma dessas condições, deve-se cumprir OBRIGATORIAMENTE o salário ser maior que R$3.000,00.
