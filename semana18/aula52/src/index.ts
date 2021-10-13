@@ -7,6 +7,6 @@ criado por meio do constructor.
 
 */
 
-import UserAccount  from './classes/userAccount';
+import UserAccount  from './classes/UserAccount';
 
 const contaJoao = new UserAccount('416.262.218-39', 'João Filippe Rossi Rodrigues', 28);
