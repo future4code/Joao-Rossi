@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import User from "./classes/User";
 import Product from "./classes/Product";
+import Tickets from "./classes/Tickets";
 
 dotenv.config();
 
