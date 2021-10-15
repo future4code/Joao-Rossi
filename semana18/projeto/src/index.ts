@@ -3,9 +3,7 @@ import knex from "knex";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-import User from "./classes/User";
-import Product from "./classes/Product";
-import Tickets from "./classes/Tickets";
+import createUser from "./endpoints/createUser";
 
 dotenv.config();
 
@@ -27,8 +25,10 @@ app.use(cors());
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost: ${address.port}`);
+       console.log(`Server is running in http://localhost:${address.port}`);
     } else {
        console.error(`Failure upon starting server.`);
     }
 });
+
+app.post('/user', createUser)

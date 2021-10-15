@@ -1,7 +1,7 @@
 export default class User {
-    private id: string;
-    private name: string;
-    private email: string;
+    id: string;
+    name: string;
+    email: string;
 
     constructor (id: string, name: string, email: string) {
         this.id = id,
