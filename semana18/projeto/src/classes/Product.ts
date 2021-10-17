@@ -1,13 +1,13 @@
 export default class Product {
-    private id: string;
-    private productName: string;
-    private description: string;
-    private price: string;
-
-    constructor (id: string, productName: string, description: string,  price: string) {
-        this.id = id,
-        this.productName = productName,
-        this.description = description
-        this.price = price
+    constructor(
+        readonly id: string,
+        readonly name: string,
+        readonly description: string,
+        readonly price: number,
+    ) {
+        if (typeof id !== 'string') throw new Error('Please, type an id as a string')
+        if (typeof name !== 'string') throw new Error('Please, type an name as a string')
+        if (typeof description !== 'string') throw new Error('Please, type an description as a string')
+        if (typeof price !== 'number') throw new Error('Please, type an price as a number')
     }
 }

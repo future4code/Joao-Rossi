@@ -1,14 +1,16 @@
 import Product from './Product'
 
 export default class Tickets extends Product {
-    private id: string;
-    private productName: string;
-    private description: string;
-    private price: string;
-    private origin: string;
-    private destination: string;
-
-    constructor (id: string, productName: string, description: string, price: string) {
-        super(id, productName, description, price);
+    constructor(
+        id: string,
+        name: string,
+        description: string,
+        price: number,
+        readonly origin: string,
+        readonly destination: string
+    ) {
+        super(id, name, description, price)
+        if (typeof origin !== 'string') throw new Error('Please, type an origin as a string')
+        if (typeof destination !== 'string') throw new Error('Please, type an destination as a string')
     }
 }
