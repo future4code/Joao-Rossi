@@ -3,7 +3,7 @@ export default class Product {
         readonly id: string,
         readonly name: string,
         readonly description: string,
-        readonly price: number,
+        readonly price: Number,
     ) {
         if (typeof id !== 'string') throw new Error('Please, type an id as a string')
         if (typeof name !== 'string') throw new Error('Please, type an name as a string')
