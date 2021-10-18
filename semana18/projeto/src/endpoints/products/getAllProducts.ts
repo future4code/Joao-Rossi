@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UserDataBase from "../../data/users/UserDataBase";
+import ProductDataBase from "../../data/products/ProductDataBase";
 
 export default async function createUser(
     req: Request,
@@ -7,9 +7,9 @@ export default async function createUser(
 ) {
     let codeError: number = 400;
     try {
-        const database = new UserDataBase();
-        const users = await database.selectAllUsers()
-        res.status(200).send({ message: "Deu certo!! 🤓", users })
+        const database = new ProductDataBase();
+        const products = await database.selectAllProducts()
+        res.status(200).send({ message: "Deu certo!! 🤓", products })
 
     } catch (error: any) {
         res.status(codeError).send(error.message)
