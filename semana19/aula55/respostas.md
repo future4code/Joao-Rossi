@@ -16,4 +16,9 @@ ALTER TABLE 19_aula55_users
 
 
 ## Exercício 3
+**a)**
+O "as string" é uma instrução para o compilador ler o retorno do método como um string.
+
+**b)** 
+
 
