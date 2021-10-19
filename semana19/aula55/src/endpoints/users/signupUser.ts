@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import { generateId } from '../../../services/generateId';
+import { generateId } from '../../services/generateId'
 
 export default function signup (req: Request, res: Response) {
     try {
@@ -18,7 +18,7 @@ export default function signup (req: Request, res: Response) {
     
         const id = generateId();
     
-        await createUser(id, userData.email, userData.password);
+        insertUser(id, userData.email, userData.password);
     
         const token = generateToken({
           id,
@@ -32,4 +32,8 @@ export default function signup (req: Request, res: Response) {
           message: err.message,
         });
       }
+}
+
+function insertUser(id: string, email: any, password: any) {
+  throw new Error('Function not implemented.');
 }

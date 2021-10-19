@@ -2,7 +2,7 @@ import { connection } from "../connection";
 
 const userTableName = "User";
 
-	 const createUser = async (
+	 const insertUser = async (
 		id: string, 
 		email: string, 
 		password: string) => {
