@@ -1,8 +1,10 @@
 import {Request, Response} from 'express';
 import {selectUserByEmail} from '../data/selectUserByEmail'
+import { selectUserById } from '../data/selectUserById';
 import { generateToken } from '../services/generateToken';
+import { getData } from '../services/getData';
 
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUserByEmail = async (req: Request, res: Response) => {
     try {
       if (!req.body.email || req.body.email.indexOf("@") === -1) {
         throw new Error("Invalid email");
@@ -34,3 +36,23 @@ export const loginUser = async (req: Request, res: Response) => {
       });
     }
   };
+
+  export const loginUserById= async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization as string;
+  
+     
+      const authenticationData = getData(token);
+  
+      const user = await selectUserById(authenticationData.id);
+  
+      res.status(200).send({
+        id: user.id,
+        email: user.email,
+      });
+    } catch (err: any) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  }
