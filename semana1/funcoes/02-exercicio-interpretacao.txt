@@ -1,0 +1,25 @@
+let textoDoUsuario = prompt("Insira um texto");
+
+const outraFuncao = function(texto) {
+	return texto.toLowerCase().includes("cenoura")
+}
+
+const resposta = outraFuncao(textoDoUsuario)
+console.log(resposta)
+
+
+
+a. Explique o que essa função faz e qual é sua utilidade
+
+Essa função faz com que imprima se há o string 'cenoura' no texto inserido pelo usuário. 
+Além disso, para garantir que as letras não estejam em CAPSLOCK, ela coloca todas em minúsculo.
+
+
+b. Determine qual será a saída no console para cada uma das 3 entradas do usuário:
+     i.   `Eu gosto de cenoura`
+	 	true
+     ii.  `CENOURA é bom pra vista`
+	 	true
+     iii. `Cenouras crescem na terra`
+	 	true
+

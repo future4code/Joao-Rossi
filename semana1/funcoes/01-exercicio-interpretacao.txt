@@ -1,0 +1,19 @@
+function minhaFuncao(variavel) {
+	return variavel * 5
+}
+
+console.log(minhaFuncao(2))
+console.log(minhaFuncao(10))
+
+a) O que vai ser impresso no console?
+
+RESPOSTA: 10 e 20
+
+
+
+b) O que aconteceria se retirasse os dois `console.log` e simplesmente invocasse a função 
+`minhaFuncao(2)` e `minhaFuncao(10)`? O que apareceria no console?
+
+RESPOSTA:
+Não iria aparecer nada, pois o console.log não foi utilizado.
+Como existe o return, o valor iria apenas ser retornado para a função.
