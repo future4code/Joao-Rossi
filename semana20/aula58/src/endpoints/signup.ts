@@ -46,7 +46,7 @@ export const signup = async (
             token
          })
 
-   } catch (error) {
+   } catch (error: any) {
       res.status(400).send(error.message)
    }
 }
