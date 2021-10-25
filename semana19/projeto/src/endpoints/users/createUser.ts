@@ -1,40 +1,56 @@
 import { User } from "../../entities/Users";
 import { Request, Response } from "express";
 import { generateId } from "../../services/generateId";
-import {UserDataBase} from "../../data/Users/UserDataBase";
+import { UserDataBase } from "../../data/Users/UserDataBase";
+import { HashManager } from "../../services/HashManager";
+import { Authenticator } from "../../services/Authenticator";
 
-export async function createUser(
-    req: Request,
-    res: Response
-) {
-    let codeError = 400
+export async function createUser(req: Request, res: Response) {
+  let codeError = 400;
 
-    try {
-        const { username, email, password } = req.body;
-        const database = new UserDataBase();
-        const id: string = generateId();
-        const user: User = new User(id, username, email, password);
+  try {
+    const userDataBase = new UserDataBase();
+    const hashManager = new HashManager();
+    const authenticator = new Authenticator();
 
+    const { name, email, password, role } = req.body;
 
-        if (!username || !email) {
-            codeError = 400;
-            throw new Error('Por favor, verifique os campos "name" e "email.')
-        }
-
-        if (!email.includes('@')) {
-            codeError = 400;
-            throw new Error('Por favor, insira um email válido.')
-        }
-
-        if (password.length < 6) {
-            throw new Error('Please, enter a password with six or more characters')
-        }
-        await database.insertUser(user)
-
-        res.status(201).send({ message: 'User created successfully', user })
-
-    } catch (error: any) {
-        res.status(codeError).send(error.message);
+    if (!name || !email || !password) {
+      codeError = 422;
+      throw new Error(
+        'Please, insert correctly the fields "name", "email" and "password".'
+      );
     }
 
+    if (!email.includes("@")) {
+      codeError = 422;
+      throw new Error("Please, insert an valid email address");
+    }
+
+    if (password.length < 6) {
+      codeError = 422;
+      throw new Error("Please, enter a password with six or more characters");
+    }
+
+    
+    const id = generateId();
+
+    const passwordToken: string = (await hashManager.hash(password)).toString();
+
+    const user = new User(id, name, email, passwordToken, role);
+
+    console.log(user);
+
+    await userDataBase.insertUser(user);
+
+    // const token = authenticator.generate({id, role});
+
+    res.status(201).send({
+      message: "User created successfully",
+      // token,
+      user,
+    });
+  } catch (error: any) {
+    res.status(codeError).send(error.message);
+  }
 }
