@@ -1,9 +1,9 @@
-import { User } from "../../entities/Users";
 import { Request, Response } from "express";
-import { generateId } from "../../services/generateId";
 import { UserDataBase } from "../../data/Users/UserDataBase";
-import { HashManager } from "../../services/HashManager";
+import { User } from "../../entities/Users";
 import { Authenticator } from "../../services/Authenticator";
+import { generateId } from "../../services/generateId";
+import { HashManager } from "../../services/HashManager";
 
 export async function createUser(req: Request, res: Response) {
   let codeError = 400;
