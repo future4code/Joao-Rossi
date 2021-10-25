@@ -1,5 +1,5 @@
 import { app } from "./app"
-import { signup } from './endpoints/signup'
+import { signup } from './endpoints/controller/signupController'
 import { createTask } from './endpoints/createTask'
 import { getTaskById } from './endpoints/getTaskById'
 import { login } from './endpoints/login'

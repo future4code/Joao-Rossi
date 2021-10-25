@@ -1,5 +1,5 @@
 import { connection } from "../connection";
-import { task } from "../types/task";
+import { task } from "../entities/types/task";
 
 export const insertTask = async (
    task: task

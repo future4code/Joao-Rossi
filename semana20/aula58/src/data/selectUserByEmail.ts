@@ -1,5 +1,5 @@
 import { connection } from "../connection"
-import { user } from "../types/user"
+import { user } from "../entities/types/user"
 
 export const selectUserByEmail = async (
    email: string
