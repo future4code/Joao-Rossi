@@ -1,3 +1,8 @@
+export type authenticationData = {
+    id: string,
+    role: USER_ROLES
+ }
+
 export enum USER_ROLES {
     NORMAL = 'NORMAL',
     ADMIN = 'ADMIN'
@@ -20,10 +25,6 @@ export class User {
         return this.name
     }
 
-    getNickname(): string {
-        return this.nickname
-    }
-
     getEmail(): string {
         return this.email
     }
@@ -33,7 +34,7 @@ export class User {
     }
 
     getRole(): string {
-        return this.role
+        return this.role as string
     }
 
 }

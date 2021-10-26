@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { SignupBussiness } from "../business/SignupBussiness";
 
 
 export const signup = async (
@@ -6,18 +7,19 @@ export const signup = async (
    res: Response
 ) => {
    try {
-      const { name, nickname, email, password, role } = req.body
+      const signupBussiness = new SignupBussiness();
+      const { name, email, password, role } = req.body
 
       if (
          !name ||
-         !nickname ||
          !email ||
          !password ||
          !role
       ) {
-         throw new Error('Preencha os campos "name","nickname", "email" e "password"')
+         throw new Error('Preencha os campos "name", "email" e "password"')
       }
-
+     
+      const token: string = await signupBussiness.signup(name, email, password, role)
       
 
       res
