@@ -11,7 +11,7 @@ type FindByEmailResponse = {
 
 export default class UserData extends BaseDatabase implements UserRepository {
 
-    protected TABLE_NAME = "labook_users"
+    protected TABLE_NAME = "20_projeto_users"
 
     create = async (user: User) => {
         try {
