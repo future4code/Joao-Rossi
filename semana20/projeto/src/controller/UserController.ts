@@ -1,42 +1,23 @@
-import { Request, Response } from "express";
-import UserBusiness, { LoginInputDTO } from "../business/UserBusiness";
-import { SignupInputDTO } from "../business/UserBusiness";
-import UserData from "../data/UserData";
+import User, { SignupInputDTO, LoginInputDTO } from "../model/User";
+import Authenticator from "../services/Authenticator";
+import HashManager from "../services/HashManager";
+import IdGenerator from "../services/IdGenerator";
 
-export default class UserController {
-  async signup(req: Request, res: Response) {
-    const { name, email, password } = req.body;
+export default class UserControler {
+  authenticator = new Authenticator();
+  hashManger = new HashManager();
+  idGenarator = new IdGenerator();
 
-    const input: SignupInputDTO = {
-      email,
-      name,
-      password,
-    };
-
-    try {
-      const token = await this.userBusiness.signup(input);
-
-      res
-        .status(200)
-        .send({ message: "Usuário cadastrado com sucesso", token });
-    } catch (error: any) {
-      if (error.message) return res.status(400).send(error.message);
-      res.status(400).send("Erro no signup");
-    }
+  constructor() {
+    this.authenticator = new Authenticator();
+    this.hashManger = new HashManager();
+    this.idGenarator = new IdGenerator();
   }
 
-  async login(req: Request, res: Response) {
-    const { email, password } = req.body;
+  signUp(input: SignupInputDTO) {
+    const { name, email, password, role } = input;
+    const id = this.idGenarator.generateId;
 
-    const input: LoginInputDTO = {
-      email,
-      password,
-    };
-    try {
-      const respostaBusiness = await this.userBusiness.login(input);
-      res.status(200).send({ message: "Deu certo", input, respostaBusiness });
-    } catch (error: any) {
-        res.status(400).send(error)
-    }
+    const user = new User(name, email, password, role);
   }
 }

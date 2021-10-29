@@ -1,8 +1,8 @@
 import knex from "knex";
+import dotenv from "dotenv";
 
-// abstract para evitar instanciar a BaseDatabase
-// protected para permitir herança
-// static para não precisar do .this
+dotenv.config();
+
 export default abstract class BaseDatabase {
   protected static connection = knex({
     client: "mysql",
@@ -11,7 +11,7 @@ export default abstract class BaseDatabase {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_SCHEMA,
-      port: 3306,
+      port: process.env.PORT_HOST,
       multipleStatements: true,
     },
   });
