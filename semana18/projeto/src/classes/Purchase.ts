@@ -1,0 +1,13 @@
+export default class Purchase {
+    constructor(
+        readonly userId: string,
+        readonly productId: string,
+        readonly quantity: number,
+        readonly total: number
+    ) {
+        if (typeof userId !== 'string') throw new Error('Please, type an userId as a string')
+        if (typeof productId !== 'string') throw new Error('Please, type an productId as a string')
+        if (typeof quantity !== 'number') throw new Error('Please, type an productId as a number')
+        if (typeof total !== 'number') throw new Error('Please, type an total as a number')
+    }
+}

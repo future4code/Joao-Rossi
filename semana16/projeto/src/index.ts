@@ -8,19 +8,7 @@ import getUserById  from "./endpoints/getUserById"
 import changeUser from "./endpoints/changeUser"
 import createTask  from "./endpoints/createTask"
 
-dotenv.config();
 
-//* Configurando o knex (para conectar ao MySQL – Banco de Dados)
-export const connection = knex({
-	client: "mysql",
-	connection: {
-    host: process.env.DB_HOST,
-    port: 3306,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-  }
-});
 
 //* Configurando o Express (para configurar a comunicação entre o Front e o Back)
 const app: Express = express();
