@@ -1,4 +1,4 @@
-export type ROLE_USERS = {
+export type USER_ROLES = {
   NORMAL: "NORMAL";
   ADMIN: "ADMIN";
 };
@@ -7,8 +7,9 @@ export interface SignupInputDTO {
   name: string;
   email: string;
   password: string;
-  role: ROLE_USERS;
+  role: USER_ROLES;
 }
+
 export interface LoginInputDTO {
   email: string;
   password: string;
@@ -19,32 +20,74 @@ export interface authenticationData {
   role: string;
 }
 
+export interface loginInputDTO {
+  email: string;
+  password: string;
+}
+
+export interface createUser {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+}
+
+export interface resultUserBusiness {
+  statusCode: number;
+  resultMessage: string;
+}
+
 export default class User {
+  private id: string;
   private name: string;
   private email: string;
   private password: string;
-  private role: ROLE_USERS;
+  private role: USER_ROLES;
 
-  constructor(name: string, email: string, password: string, role: ROLE_USERS) {
+  constructor(
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    role: USER_ROLES
+  ) {
+    this.id = id;
     this.name = name;
     this.email = email;
     this.password = password;
     this.role = role;
   }
 
-  getName() {
+  getId(): string{
+    return this.id;
+  }
+
+  getName(): string {
     return this.name;
   }
 
-  getEmail() {
+  getEmail(): string {
     return this.email;
   }
 
-  getPassword() {
+  getPassword(): string {
     return this.password;
   }
 
-  getRole() {
-      return this.role;
+  getRole(): USER_ROLES {
+    return this.role;
+  }
+
+  getRoleAsString(): string {
+    return (this.role).toString();
+  }
+
+  static toUser(input: any | null) : User {
+    const {id, name, email, password, role} = input; 
+
+    const user = new User(id, name, email, password, role)
+
+    return user || null
   }
 }
