@@ -2,11 +2,11 @@ import User, {
   SignupInputDTO,
   resultUserBusiness,
   loginInputDTO,
-} from "../model/User";
-import IdGenerator from "../services/IdGenerator";
-import HashManager from "../services/HashManager";
-import Authenticator from '../services/Authenticator'
-import UserDatabase from "../data/UserDatabase";
+} from "../../model/User";
+import IdGenerator from "../../services/idGenerator";
+import HashManager from "../../services/HashManager";
+import Authenticator from '../../services/Authenticator'
+import UserDatabase from "../../data/UserDatabase";
 
 export default class UserBusiness {
   hashManger = new HashManager();
@@ -36,7 +36,7 @@ export default class UserBusiness {
         };
       }
       const id: string = this.idGenerator.generateId();
-      const cyberPassword = await this.hashManger.hash(id);
+      const cyberPassword = await this.hashManger.hash(password);
 
       const user = new User(id, name, email, cyberPassword, role);
 
@@ -49,7 +49,6 @@ export default class UserBusiness {
 
   async login(input: loginInputDTO): Promise<string|null> {
     try {
-      console.log(input)
       const { email, password } = input;
 
       if (!email || !password) {
@@ -57,14 +56,12 @@ export default class UserBusiness {
       }
 
       const user: User = await this.userDatabase.selectByEmail(email);
-      console.log('user', user)
 
       if (!user) {
         throw new Error("Usuário não encontrado ou senha incorreta");
       }
 
       const passwordCheck: boolean = await this.hashManger.compare(password, user.getPassword());
-      console.log(`${user.getPassword()}, ${password}, ${passwordCheck}`)
       if (!passwordCheck) {
         throw new Error("Usuário não encontrado ou senha incorreta");
       }
