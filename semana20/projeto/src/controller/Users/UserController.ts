@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import UserBusiness from "../business/Users/UserBusiness.";
-import User, { loginInputDTO, resultUserBusiness, SignupInputDTO } from "../model/User";
+import UserBusiness from "../../business/Users/UserBusiness.";
+import User, { loginInputDTO, resultUserBusiness, SignupInputDTO } from "../../model/Users/User";
 
 export default class UserController {
   

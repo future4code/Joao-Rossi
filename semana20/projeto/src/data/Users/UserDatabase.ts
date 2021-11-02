@@ -1,7 +1,7 @@
-import { createUser } from "./../model/User";
-import BaseDatabase from "./BaseDatabase";
-import User from "../model/User";
-import Authenticator from "../services/Authenticator";
+import { createUser } from "../../model/Users/UserData";
+import BaseDatabase from "../BaseDatabase";
+import User from "../../model/Users/User";
+import Authenticator from "../../services/Authenticator";
 
 export default class UserDatabase extends BaseDatabase {
   tableName: string = "20_projeto_users";

@@ -1,12 +1,11 @@
-import User, {
-  SignupInputDTO,
-  resultUserBusiness,
-  loginInputDTO,
-} from "../../model/User";
+import User from "../../model/Users/User"
+import {  SignupInputDTO,  ResultUserBusiness,
+  LoginInputDTO,
+} from "../../model/Users/UserObject";
 import IdGenerator from "../../services/idGenerator";
 import HashManager from "../../services/HashManager";
 import Authenticator from '../../services/Authenticator'
-import UserDatabase from "../../data/UserDatabase";
+import UserDatabase from "../../data/Users/UserDatabase";
 
 export default class UserBusiness {
   hashManger = new HashManager();
@@ -14,7 +13,7 @@ export default class UserBusiness {
   authenticator = new Authenticator();
   userDatabase = new UserDatabase();
 
-  async signup(input: SignupInputDTO): Promise<resultUserBusiness> {
+  async signup(input: SignupInputDTO): Promise<ResultUserBusiness> {
     let statusCode = 400;
     try {
       const { name, email, password, role } = input;
@@ -47,7 +46,7 @@ export default class UserBusiness {
     }
   }
 
-  async login(input: loginInputDTO): Promise<string|null> {
+  async login(input: LoginInputDTO): Promise<string|null> {
     try {
       const { email, password } = input;
 

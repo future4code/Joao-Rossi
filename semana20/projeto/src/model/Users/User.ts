@@ -3,41 +3,6 @@ export type USER_ROLES = {
   ADMIN: "ADMIN";
 };
 
-export interface SignupInputDTO {
-  name: string;
-  email: string;
-  password: string;
-  role: USER_ROLES;
-}
-
-export interface LoginInputDTO {
-  email: string;
-  password: string;
-}
-
-export interface authenticationData {
-  id: string;
-  role: string;
-}
-
-export interface loginInputDTO {
-  email: string;
-  password: string;
-}
-
-export interface createUser {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  role: string;
-}
-
-export interface resultUserBusiness {
-  statusCode: number;
-  resultMessage: string;
-}
-
 export default class User {
   private id: string;
   private name: string;
