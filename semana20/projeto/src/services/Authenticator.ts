@@ -1,9 +1,9 @@
 import * as jwt from "jsonwebtoken"
-import { authenticationData } from "../model/Users/User"
+import { AuthenticationData } from "../model/Users/User"
 
 export default class Authenticator {
    generateToken = (
-      payload: authenticationData
+      payload: AuthenticationData
    ): string => {
       return jwt.sign(
          payload,
@@ -16,10 +16,10 @@ export default class Authenticator {
 
    getTokenData = (
       token: string
-   ): authenticationData => {
+   ): AuthenticationData => {
       return jwt.verify(
          token,
          process.env.JWT_KEY as string
-      ) as authenticationData
+      ) as AuthenticationData
    }
 }

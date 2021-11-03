@@ -1,10 +1,10 @@
-import {USER_ROLES} from "./User"
+import {POST_TYPE} from "./Post"
 
-export interface SignupInputDTO {
-    name: string;
-    email: string;
-    password: string;
-    role: USER_ROLES;
+export interface CreatePostDTO {
+    photo: string;
+    description: string;
+    type: POST_TYPE;
+    token: string
   }
   
   export interface LoginInputDTO {
@@ -13,7 +13,7 @@ export interface SignupInputDTO {
   }
   
   
-  export interface ResultUserBusiness {
+  export interface ResultPostBusiness {
     statusCode: number;
     resultMessage: string;
   }

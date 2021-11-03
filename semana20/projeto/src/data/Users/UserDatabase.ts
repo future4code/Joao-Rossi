@@ -15,7 +15,7 @@ export default class UserDatabase extends BaseDatabase {
         name: input.getName(),
         email: input.getEmail(),
         password: input.getPassword(),
-        role: input.getRole().toString(),
+        role: input.getRoleAsString(),
       };
 
       const token = authenticator.generateToken({

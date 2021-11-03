@@ -2,7 +2,7 @@ import User from "../../model/Users/User"
 import {  SignupInputDTO,  ResultUserBusiness,
   LoginInputDTO,
 } from "../../model/Users/UserObject";
-import IdGenerator from "../../services/idGenerator";
+import IdGenerator from "../../services/IdGenerator";
 import HashManager from "../../services/HashManager";
 import Authenticator from '../../services/Authenticator'
 import UserDatabase from "../../data/Users/UserDatabase";

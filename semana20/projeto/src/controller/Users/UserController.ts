@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import UserBusiness from "../../business/Users/UserBusiness.";
-import User, { loginInputDTO, resultUserBusiness, SignupInputDTO } from "../../model/Users/User";
+import UserBusiness from "../../business/Users/UserBusiness";
+import User from "../../model/Users/User" 
+import { LoginInputDTO, ResultUserBusiness, SignupInputDTO } from "../../model/Users/UserObject";
 
 export default class UserController {
   
@@ -11,7 +12,7 @@ export default class UserController {
       const { name, email, password, role } = req.body;
       const input: SignupInputDTO = { name, email, password, role };
 
-      const result: resultUserBusiness = await userBusiness.signup(input);
+      const result: ResultUserBusiness = await userBusiness.signup(input);
 
       const { statusCode, resultMessage } = result;
 
@@ -33,11 +34,8 @@ export default class UserController {
     try {
       const userBusiness = new UserBusiness()
       const { email, password } = req.body;
-      console.log(email, password)
-      const data: loginInputDTO = { email , password}
-      console.log(data)
+      const data: LoginInputDTO = { email , password}
       const result = await userBusiness.login(data);
-      console.log(result);
       res.status(200).send(result);
     } catch (error: any) {
       res.status(401).send(error.sqlMessage || error.message);

@@ -1,3 +1,8 @@
+export type AuthenticationData = {
+  id: string,
+  role: string
+}
+
 export type USER_ROLES = {
   NORMAL: "NORMAL";
   ADMIN: "ADMIN";
