@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
+import PostBusiness from "../../business/Posts/PostBusiness";
 import { CreatePostDTO } from "../../model/Posts/PostObject";
  
 
 export default class PostController {
+
+  
   
   async create(req: Request, res: Response) {
+    const postBusiness = new PostBusiness()
     let errorCode = 400;
     try {
       
@@ -17,8 +21,13 @@ export default class PostController {
         type: req.body.type, 
         token
       }
+      console.log(input, token)
+      const response = await postBusiness.create(input)
+
+      res.status(200).send(response)
 
     } catch (error: any) {
+      console.log('postController', error)
       res.status(errorCode).send(error.sqlMessage || error.message);
     }
   }

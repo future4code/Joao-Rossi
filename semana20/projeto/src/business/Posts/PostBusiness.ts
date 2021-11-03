@@ -16,20 +16,26 @@ export default class PostBusiness {
   idGenerator = new IdGenerator();
   tokenManager = new Authenticator();
 
-  async create(input: CreatePostDTO) {
+  async create(input: CreatePostDTO): Promise<string> {
     try {
       const id = this.idGenerator.generateId();
-      const createdAt = moment().format("YYYY-MM-DD");
+      const createdAt: string = moment().format("YYYY-MM-DD");
       const tokenData: AuthenticationData = this.tokenManager.getTokenData(input.token)
 
       const post = new Post(
-        id,input.photo,input.description,
-        createdAt,tokenData.id ,input.type
+        id,input.photo,
+        input.description,
+        createdAt,
+        tokenData.id,
+        input.type
       );
 
-      const result = await this.postDatabase.insert(post);
-      return result;
+      const result: string = await this.postDatabase.insert(post);
+     
+      return result
+
     } catch (error: any) {
+      console.log('postBusiness', error)
       throw new Error(error.sqlMessage || error.message);
     }
   }

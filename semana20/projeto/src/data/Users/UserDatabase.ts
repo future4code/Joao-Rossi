@@ -36,10 +36,8 @@ export default class UserDatabase extends BaseDatabase {
       const user = await this.connection(this.tableName)
         .select("*")
         .where({ email });
-      console.log('data', user)
       return user[0] && User.toUser(user[0]);
     } catch (error: any) {
-      console.log(error.slqMessage || error.message);
       throw new Error("Erro ao buscar usuário");
     }
   }

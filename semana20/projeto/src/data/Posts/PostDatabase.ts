@@ -3,7 +3,7 @@ import { createPostDTO } from "../../model/Posts/PostData";
 import BaseDatabase from "../BaseDatabase";
 
 export default class PostDatabase extends BaseDatabase {
-  tableName: string = "20_projeto_users";
+  tableName: string = "20_projeto_posts";
 
   async insert(input: Post) {
     try {
@@ -14,12 +14,16 @@ export default class PostDatabase extends BaseDatabase {
         description: input.getDescription(),
         created_at: input.getCreatedAt(),
         type: input.getTypeAsString(),
-        author: input.getAuthorId(),
+        author_id: input.getAuthorId(),
       };
      
 
       await this.connection.insert(post).into(this.tableName);
+
+      return "Sucesso"
+
     } catch (error: any) {
+      console.log('data', error)
       throw new Error(error.sqlMessage || error.message);
     }
   }

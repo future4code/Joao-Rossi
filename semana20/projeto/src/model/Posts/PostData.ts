@@ -8,7 +8,7 @@ export interface createPostDTO {
     photo: string;
     description: string;
     created_at: string;
-    author: string;
+    author_id: string;
     type: string;
   }
   
