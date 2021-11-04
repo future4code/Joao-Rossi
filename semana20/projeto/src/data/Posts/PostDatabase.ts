@@ -5,9 +5,8 @@ import BaseDatabase from "../BaseDatabase";
 export default class PostDatabase extends BaseDatabase {
   tableName: string = "20_projeto_posts";
 
-  async insert(input: Post) {
+  async insert(input: Post): Promise<string> {
     try {
-
       const post: createPostDTO = {
         id: input.getId(),
         photo: input.getPhoto(),
@@ -16,27 +15,24 @@ export default class PostDatabase extends BaseDatabase {
         type: input.getTypeAsString(),
         author_id: input.getAuthorId(),
       };
-     
 
       await this.connection.insert(post).into(this.tableName);
-
-      return "Sucesso"
-
+     
+      return post.id
+      
     } catch (error: any) {
-      console.log('data', error)
       throw new Error(error.sqlMessage || error.message);
     }
   }
 
   async selectById(id: string): Promise<Post> {
     try {
-    
       const result = await this.connection(this.tableName)
         .select("*")
         .where({ id });
-      return result[0] && Post.toPost(result[0]);
+      return Post.toPost(result[0]);
     } catch (error: any) {
-      throw new Error("Erro ao buscar usuário");
+      throw new Error("Erro ao buscar post");
     }
   }
 }

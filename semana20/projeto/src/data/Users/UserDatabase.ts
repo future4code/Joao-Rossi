@@ -32,7 +32,6 @@ export default class UserDatabase extends BaseDatabase {
 
   async selectByEmail(email: string): Promise<User> {
     try {
-      console.log(email)
       const user = await this.connection(this.tableName)
         .select("*")
         .where({ email });

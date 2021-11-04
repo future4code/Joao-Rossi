@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import PostBusiness from "../../business/Posts/PostBusiness";
-import { CreatePostDTO } from "../../model/Posts/PostObject";
+import Post from "../../model/Posts/Post";
+import { CreatePostDTO, PostRequestDTO } from "../../model/Posts/PostObject";
  
 
 export default class PostController {
@@ -21,26 +22,34 @@ export default class PostController {
         type: req.body.type, 
         token
       }
-      console.log(input, token)
       const response = await postBusiness.create(input)
+      if (response) {
+        res.status(200).send(`Sucesso! Aqui está o id do post: ${response}`)
 
-      res.status(200).send(response)
+      }
 
     } catch (error: any) {
-      console.log('postController', error)
-      res.status(errorCode).send(error.sqlMessage || error.message);
+      res.status(400).send(error.sqlMessage || error.message);
     }
   }
 
- /*  async login(req: Request, res: Response) {
+
+  async get(req: Request, res: Response) {
     try {
-      const userBusiness = new UserBusiness()
-      const { email, password } = req.body;
-      const data: LoginInputDTO = { email , password}
-      const result = await userBusiness.login(data);
-      res.status(200).send(result);
+      const postBusiness = new PostBusiness()
+      
+      const token = req.headers.authorization as string
+      const idPost = req.params.id as string
+
+      const request: PostRequestDTO = {idPost, token}
+
+      const result: Post = await postBusiness.selectById(request)
+
+      if(result) {
+
+      res.status(200).send({message: "Sucesso!", Post: result})};
     } catch (error: any) {
       res.status(401).send(error.sqlMessage || error.message);
     }
-  } */
+  }
 }

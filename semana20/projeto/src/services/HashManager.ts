@@ -8,7 +8,6 @@ export default class HashManager {
   }
 
   compare = async (plainText: string, cypherText: string): Promise<boolean> => {
-    console.log(`plainText: ${plainText}, cypherText: ${cypherText}`)
     return bcrypt.compare(plainText, cypherText)
   }
 }

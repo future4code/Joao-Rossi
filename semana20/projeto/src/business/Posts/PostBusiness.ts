@@ -3,12 +3,11 @@ import moment from "moment";
 import PostDatabase from "../../data/Posts/PostDatabase";
 import {
   CreatePostDTO,
-  ResultPostBusiness,
-  LoginInputDTO
+  PostRequestDTO,
 } from "../../model/Posts/PostObject";
 import IdGenerator from "../../services/IdGenerator";
 import Post from "../../model/Posts/Post";
-import {AuthenticationData} from "../../model/Users/User"
+import { AuthenticationData } from "../../model/Users/User";
 import Authenticator from "../../services/Authenticator";
 
 export default class PostBusiness {
@@ -20,43 +19,46 @@ export default class PostBusiness {
     try {
       const id = this.idGenerator.generateId();
       const createdAt: string = moment().format("YYYY-MM-DD");
-      const tokenData: AuthenticationData = this.tokenManager.getTokenData(input.token)
+      const tokenData: AuthenticationData = this.tokenManager.getTokenData(
+        input.token
+      );
 
       const post = new Post(
-        id,input.photo,
+        id,
+        input.photo,
         input.description,
         createdAt,
         tokenData.id,
         input.type
       );
 
-      const result: string = await this.postDatabase.insert(post);
-     
+      const result = await this.postDatabase.insert(post);
+    
       return result
-
     } catch (error: any) {
-      console.log('postBusiness', error)
       throw new Error(error.sqlMessage || error.message);
     }
   }
 
-  // async selectById(input: LoginInputDTO): Promise<string | null> {
-  //   try {
-  //     const { email, password } = input;
+  async selectById(input: PostRequestDTO): Promise<Post> {
+    try {
+      const { idPost, token } = input;
 
-  //     if (!email || !password) {
-  //       throw new Error("'email' e 'senha' são obrigatórios");
-  //     }
+      if (!token) {
+        throw new Error("The user must be authenticated");
+      }
 
-  //     const post: Post = await this.postDatabase.selectByEmail(email);
+      const post: Post = await this.postDatabase.selectById(idPost);
 
-  //     if (!post) {
-  //       throw new Error("Usuário não encontrado ou senha incorreta");
-  //     }
+      if (!post) {
+        throw new Error("Post not found.");
+      }
 
+      const result = post
       
-  //   } catch (error: any) {
-  //     throw new Error(error.sqlMessage || error.message || error.code);
-  //   }
-  // }
+      return result;
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message || error.code);
+    }
+  }
 }

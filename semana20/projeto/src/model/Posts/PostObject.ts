@@ -7,18 +7,13 @@ export interface CreatePostDTO {
     token: string
   }
   
-  export interface LoginInputDTO {
-    email: string;
-    password: string;
+  export interface PostRequestDTO {
+    idPost: string;
+    token: string;
   }
   
   
-  export interface ResultPostBusiness {
-    statusCode: number;
-    resultMessage: string;
-  }
-
-  export type authenticationData = {
+   export type authenticationData = {
       
   }
   
