@@ -35,4 +35,15 @@ export default class PostDatabase extends BaseDatabase {
       throw new Error("Erro ao buscar post");
     }
   }
+
+  async selectAll(): Promise<Post[]> {
+    try {
+      const result = await this.connection(this.tableName)
+        .select("*")
+        const resultMap = result.map(result => Post.toPost(result)) 
+        return resultMap
+    } catch (error: any) {
+      throw new Error("Erro ao buscar post");
+    }
+  }
 }

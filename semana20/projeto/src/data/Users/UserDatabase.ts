@@ -40,4 +40,15 @@ export default class UserDatabase extends BaseDatabase {
       throw new Error("Erro ao buscar usuário");
     }
   }
+
+  async selectAll(email: string): Promise<User> {
+    try {
+      const user = await this.connection(this.tableName)
+        .select("*")
+        .where({ email });
+      return user[0] && User.toUser(user[0]);
+    } catch (error: any) {
+      throw new Error("Erro ao buscar usuário");
+    }
+  }
 }

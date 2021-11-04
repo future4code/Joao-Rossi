@@ -61,4 +61,15 @@ export default class PostBusiness {
       throw new Error(error.sqlMessage || error.message || error.code);
     }
   }
+
+  async getAll(token: string): Promise<Post[]> {
+    
+    if (!token) {
+      throw new Error("The user must be authenticated");
+    }
+    
+    const result = await this.postDatabase.selectAll()
+
+    return result
+  }
 }
