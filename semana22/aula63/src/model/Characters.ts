@@ -3,9 +3,4 @@ export interface Character {
     healthPoints: number
     actionPoints: number
     defense: number
-    
-    attack(
-        characterActionPoints: number, 
-        opponentDefense: number
-        ): number
 }
