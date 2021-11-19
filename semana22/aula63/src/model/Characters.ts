@@ -1,6 +1,6 @@
 export interface Character {
-    name: string
-    healthPoints: number
-    actionPoints: number
-    defense: number
+	name: string
+	healthPoints: number
+	actionPoints: number
+	defense: number
 }
