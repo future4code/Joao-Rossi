@@ -50,15 +50,22 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-    const maiorNumero = Math.max(a, b);
-    const menorNumero = Math.min(a, b);
-    const verificarDivisibilidade = (maiorNumero, menorNumero) => {
+    const a = num1;
+    const b = num2;
+
+    const verificarMaiorNumero = (a, b) => Math.max(a, b);
+    const verificarMenorNumero = (a, b) => Math.min(a, b);
+    const verificarDivisibilidade = (a, b) => {
         if (maiorNumero % menorNumero === 0) {
             return true;
         } else {
             return false;
         }
     };
+
+    const maiorNumero = verificarMaiorNumero(a, b);
+    const menorNumero = verificarMenorNumero(a, b);
+
     const maiorDivisivelPorMenor = verificarDivisibilidade(
         maiorNumero,
         menorNumero
@@ -67,12 +74,10 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
     const diferenca = maiorNumero - menorNumero;
 
     const objeto = {
-        maiorNumero,
-        maiorDivisivelPorMenor,
-        diferenca,
+        maiorNumero: maiorNumero,
+        maiorDivisivelPorMenor: maiorDivisivelPorMenor,
+        diferenca: diferenca,
     };
-
-    console.log(objeto);
 
     return objeto;
 }
@@ -81,12 +86,11 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 function retornaNPrimeirosPares(n) {
     const array = [0];
 
-    for (let i = array.length - 1; array.length < n; i++) {
-        let array = [0];
-        m = array[i] + 2;
+    for (let i = 0; array.length < n; i++) {
+        let m = array[i] + 2;
         array.push(m);
     }
-    return array.length;
+    return array;
 }
 
 // EXERCÍCIO 09
@@ -160,10 +164,10 @@ function retornaContasComSaldoAtualizado(contas) {
 
         contas.saldoTotal = contas.saldoTotal - comprasSoma;
 
-        return contas
+        return contas;
     };
 
-    return contas.map(atualizarSaldo)
+    return contas.map(atualizarSaldo);
 }
 
 // EXERCÍCIO 15A
