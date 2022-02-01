@@ -79,8 +79,7 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-
-    const array = [0]
+    const array = [0];
 
     for (let i = array.length - 1; array.length < n; i++) {
         let array = [0];
@@ -98,17 +97,55 @@ function retornaSegundoMaiorESegundoMenor(array) {}
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-    return `Venha assistir ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}`
+    return `Venha assistir ao ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}`;
 }
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {}
+function retornaPessoaAnonimizada(pessoa) {
+    pessoaAnonimizada = { ...pessoa };
+    pessoaAnonimizada.nome = 'ANÔNIMO';
+
+    return pessoaAnonimizada;
+}
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+    selecao = (pessoa) => {
+        if (pessoa.idade > 14 && pessoa.idade < 60) {
+            if (pessoa.altura >= 1.5) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    pessoasAutorizadas = pessoas.filter(selecao);
+
+    return pessoasAutorizadas;
+}
 
 // EXERCÍCIO 13B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+    selecao = (pessoa) => {
+        if (pessoa.idade <= 14) {
+            return true;
+        } else if (pessoa.idade >= 60) {
+            return true;
+        } else if (pessoa.altura < 1.5) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    const pessoasNaoAutorizadas = pessoas.filter(selecao);
+    return pessoasNaoAutorizadas;
+
+    pessoasNaoAutorizadas = pessoas.filter(selecao);
+
+    return pessoasNaoAutorizadas;
+}
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {}
