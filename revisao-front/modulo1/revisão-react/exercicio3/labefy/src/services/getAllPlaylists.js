@@ -1,5 +1,4 @@
-import axios, { Axios } from 'axios';
-import { BASE_URL } from '../constants/urls';
+import axios from 'axios';
 
 export default async function getAllPlaylists() {
     try {
@@ -11,9 +10,7 @@ export default async function getAllPlaylists() {
 
         const response = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists`, config);
         const data = response.data.result
-
-        return data
-        
+        console.log(data)        
     } catch (error) {
         console.log(error)
     }

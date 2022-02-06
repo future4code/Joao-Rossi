@@ -1,7 +1,16 @@
-function Footer() {
+import styled from 'styled-components';
 
-    return (<div><p>Aqui está o footer</p></div>)
-    
+const FooterContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+function Footer() {
+    return (
+        <FooterContainer>
+            <p>Aqui está o footer</p>
+        </FooterContainer>
+    );
 }
 
-export default Footer
+export default Footer;
