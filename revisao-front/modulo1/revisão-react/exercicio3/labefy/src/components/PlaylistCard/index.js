@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import getAllPlaylists from '../../services/getAllPlaylists';
-
 const CardContainer = styled.div`
     font-size: 36pt;
     padding: 1em;
     font-weight: 10px;
 `;
 
-export default function PlaylistCard() {
-    
+export default function PlaylistCard(props) {
+   
+
     return (
         <CardContainer>
-            Card das Playlists
+            {props.name}
         </CardContainer>
     );
 }

@@ -29,7 +29,7 @@ export default function NewPlaylist() {
         };
 
         axios
-            .post(BASE_URL, body, axiosConfig)
+            .post(`${BASE_URL}/playlists`, body, axiosConfig)
             .then(() => {
                 alert('Playlist cadastrada com sucesso');
             })
