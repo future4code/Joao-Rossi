@@ -6,12 +6,12 @@ import PlaylistCard from '../../components/PlaylistCard';
 
 const PlaylistContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
 `;
 
 export default function Playlist() {
-    const [playlists, setPlaylists] = useState(['playlists']);
+    const [playlists, setPlaylists] = useState([]);
 
     const getAllPlaylists = async () => {
         try {
@@ -19,27 +19,20 @@ export default function Playlist() {
                 `${BASE_URL}/playlists`,
                 axiosConfig
             );
-            setPlaylists(result.data.result.list)
-            return result.data.result.list;
+            const data = result.data.result.list;
+            setPlaylists(data);
         } catch (error) {
             console.log(error);
         }
     };
 
-    const onClickAction = async () => {
-        const list =  await getAllPlaylists();
-    };
+    useEffect(getAllPlaylists);
 
-    const renderPlaylists = playlists.map((playlist)=><PlaylistCard key ={playlist.id} name = {playlists.name}/>)
-    
+    const renderPlaylists = playlists.map((playlist) => {
+        return (
+            <PlaylistCard key={playlist.id} name={playlist.name} />
+        );
+    });
 
-    return (
-        <PlaylistContainer>
-            <h1>Aqui estão as suas playlists</h1>
-            {renderPlaylists}
-            <button onClick={onClickAction}>
-                Requisitar as Playlists
-            </button>
-        </PlaylistContainer>
-    );
+    return <PlaylistContainer>{renderPlaylists}</PlaylistContainer>;
 }

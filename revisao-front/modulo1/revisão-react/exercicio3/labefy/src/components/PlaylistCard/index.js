@@ -1,18 +1,21 @@
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 36pt;
     padding: 1em;
     font-weight: 10px;
 `;
 
-export default function PlaylistCard(props) {
-   
+const Button = styled.button `
+    display: flex;
+    width: 20px;
+    justify-content: center;
+    font-weight: 900;
+`
 
-    return (
-        <CardContainer>
-            {props.name}
-        </CardContainer>
-    );
+export default function PlaylistCard(props) {
+    return <CardContainer>{props.name}<Button> X </Button></CardContainer>;
 }
