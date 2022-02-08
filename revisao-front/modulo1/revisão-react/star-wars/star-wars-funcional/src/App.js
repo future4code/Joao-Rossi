@@ -1,9 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { AppContainer } from './styles';
+import ErrorPage from './assets/ErrorPage';
+import CharacterDetailsPage from './pages/CharacterDetailPage';
+import CharacterListPage from './pages/CharacterListPage';
 
 function App() {
-  return (
-    <div><h1>Star Wars</h1></div>
-  );
+    const [currentPage, setCurrentPage] = useState('list');
+
+    const selectPage = () => {
+        switch (currentPage) {
+            case 'list':
+                return <CharacterListPage />;
+                break;
+            case 'details':
+                return <CharacterDetailsPage />;
+            default:
+                return <ErrorPage />;
+                break;
+        }
+    };
+
+    return (
+        <AppContainer>
+          <h1>Star Wars</h1>
+            {selectPage()}
+        </AppContainer>
+    );
 }
 
 export default App;
