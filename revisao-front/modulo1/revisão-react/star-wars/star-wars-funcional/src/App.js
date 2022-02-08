@@ -11,19 +11,19 @@ function App() {
         switch (currentPage) {
             case 'list':
                 return <CharacterListPage />;
-                break;
             case 'details':
                 return <CharacterDetailsPage />;
             default:
                 return <ErrorPage />;
-                break;
         }
     };
 
     return (
         <AppContainer>
           <h1>Star Wars</h1>
+          <div>
             {selectPage()}
+          </div>
         </AppContainer>
     );
 }
