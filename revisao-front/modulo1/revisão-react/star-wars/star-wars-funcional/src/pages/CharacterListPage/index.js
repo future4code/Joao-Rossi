@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BASE_URL } from '../../constants/urls';
 import { CharacterListText, CharacterCard , CharacterListContainer} from './styles';
 
-export default function CharacterListPage() {
+export default function CharacterListPage(props) {
     const [characterList, setCharacterList] = useState([]);
 
     const getCharacterList = async () => {
@@ -20,7 +20,7 @@ export default function CharacterListPage() {
 
     const renderList = characterList.map((character, index) => {
         return (
-            <CharacterCard key={index}>
+            <CharacterCard key={index} goToDetailsPage={props.goToDetailsPage}>
                 {character.name}
             </CharacterCard>
         );

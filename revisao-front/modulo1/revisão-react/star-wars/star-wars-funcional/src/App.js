@@ -10,13 +10,17 @@ function App() {
     const selectPage = () => {
         switch (currentPage) {
             case 'list':
-                return <CharacterListPage />;
+                return <CharacterListPage goToDetailsPage ={goToDetailsPage}/>;
             case 'details':
                 return <CharacterDetailsPage />;
             default:
                 return <ErrorPage />;
         }
     };
+
+    const goToDetailsPage =()=> {
+        setCurrentPage('details')
+    }
 
     return (
         <AppContainer>
