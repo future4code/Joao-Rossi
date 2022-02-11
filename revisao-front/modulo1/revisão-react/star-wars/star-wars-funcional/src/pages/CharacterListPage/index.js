@@ -1,48 +1,45 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from '../../constants/urls';
-import CharacterDetailsPage from '../CharacterDetailPage';
 import {
-    CharacterListText,
-    CharacterCard,
-    CharacterListContainer,
+    CardContainer, CardItem
 } from './styles';
 
 export default function CharacterListPage(props) {
     const { goToDetailsPage, setDetailsUrl } = props;
     const [characterList, setCharacterList] = useState([]);
 
-    const getCharacterList = async () => {
-        try {
-            const result = await axios.get(`${BASE_URL}/people`);
-            const data = result.data.results;
-            setCharacterList(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    getCharacterList();
+    useEffect(() => {
+        const getCharacterList = async () => {
+            try {
+                const response = await axios.get(
+                    `${BASE_URL}/people/`
+                );
+                setCharacterList(response.data.results);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getCharacterList();
+    }, []);
 
     const renderList = characterList.map((character, index) => {
         return (
-            <CharacterCard
+            <CardItem
                 key={index}
                 onClick={() => {
-                    setDetailsUrl(
-                        `/people/${index + 1}`
-                    )
-                    goToDetailsPage()
+                    setDetailsUrl(`/people/${index + 1}`);
+                    goToDetailsPage();
                 }}
             >
                 {character.name}
-            </CharacterCard>
+            </CardItem>
         );
     });
 
     return (
-        <CharacterListContainer>
-            <CharacterListText>{renderList}</CharacterListText>
-        </CharacterListContainer>
+        <CardContainer>
+            {renderList}
+        </CardContainer>
     );
 }

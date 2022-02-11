@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AppContainer } from './styles';
+import { AppContainer, ListContainer } from './styles';
 import ErrorPage from './assets/ErrorPage';
 import CharacterDetailsPage from './pages/CharacterDetailPage';
 import CharacterListPage from './pages/CharacterListPage';
@@ -30,9 +30,9 @@ function App() {
     return (
         <AppContainer>
           <h1>Star Wars</h1>
-          <div>
+          <ListContainer>
             {selectPage()}
-          </div>
+          </ListContainer>
         </AppContainer>
     );
 }
