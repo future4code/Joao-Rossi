@@ -6,20 +6,25 @@ import CharacterListPage from './pages/CharacterListPage';
 
 function App() {
     const [currentPage, setCurrentPage] = useState('list');
+    const [detailsUrl, setDetailsUrl] = useState('')
 
     const selectPage = () => {
         switch (currentPage) {
             case 'list':
-                return <CharacterListPage goToDetailsPage ={goToDetailsPage}/>;
+                return <CharacterListPage goToDetailsPage = {goToDetailsPage} setDetailsUrl ={setDetailsUrl} />;
             case 'details':
-                return <CharacterDetailsPage />;
+                return <CharacterDetailsPage detailsUrl = {detailsUrl} goToListPage={goToListPage} />;
             default:
                 return <ErrorPage />;
         }
     };
 
-    const goToDetailsPage =()=> {
+    const goToDetailsPage = () => {
         setCurrentPage('details')
+    }
+
+    const goToListPage = () => {
+        setCurrentPage('list')
     }
 
     return (
