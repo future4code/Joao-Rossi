@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { BASIC_URL, Header } from '../../constants/API';
 
 const FormContainer = styled.div`
     display: flex;
@@ -7,7 +9,6 @@ const FormContainer = styled.div`
     background-color: rgb(250, 250, 250);
     padding: 0 3em 0 3em;
     height: 100%;
-    
 `;
 
 const Forms = styled.form`
@@ -15,7 +16,6 @@ const Forms = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
 
     & label {
         font-family: 'Hind Madurai', sans-serif;
@@ -34,17 +34,39 @@ const Forms = styled.form`
 `;
 
 const Form = () => {
-    const [valorMensalidade, setValorMensalidade] = useState(0);
+    const [mensalidade, setMensalidade] = useState(0);
+    const [taxa, setTaxa] = useState(0);
+    const [tempo, setTempo] = useState(0);
 
-    const handleChange = (e) => {
+    const handleChangeMensalidade = (e) => {
         const value = Number(e.target.value);
-        setValorMensalidade(value);
-        console.log(valorMensalidade);
+        setMensalidade(value);
+    };
+    const handleChangeTaxa = (e) => {
+        const value = Number(e.target.value);
+        const valueFix = value/100
+        setTaxa(valueFix);
+    };
+    const handleChangeTempo = (e) => {
+        const value = Number(e.target.value);
+        setTempo(value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert(`Você enviou o valor: ${valorMensalidade}`);
+
+        //[valor da mensalidade * (((1 + [taxa de juros]) ^ [tempo de contribuicao em meses] - 1) / [taxa de juros])
+        const expr = `${mensalidade} * (((1+ ${taxa}) ^ ${tempo} - 1 ) / ${taxa})`;
+        const body = {
+            expr,
+        };
+
+        try {
+            const res = await axios.post(BASIC_URL, body);
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -55,8 +77,26 @@ const Form = () => {
                     <input
                         type="text"
                         name="valor-mensalidade"
-                        value={valorMensalidade}
-                        onChange={handleChange}
+                        value={mensalidade}
+                        onChange={handleChangeMensalidade}
+                    />
+                </label>
+                <label>
+                    Taxa de Juros:
+                    <input
+                        type="text"
+                        name="taxa-juros"
+                        value={taxa}
+                        onChange={handleChangeTaxa}
+                    />
+                </label>
+                <label>
+                    Tempo de Contribuição:
+                    <input
+                        type="text"
+                        name="tempo-contribuicao"
+                        value={tempo}
+                        onChange={handleChangeTempo}
                     />
                 </label>
                 <input type="submit" value="Enviar" />
